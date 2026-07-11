@@ -1,6 +1,5 @@
 package mx.uam.ayd.proyecto.negocio.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
