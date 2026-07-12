@@ -10,5 +10,5 @@ import mx.uam.ayd.proyecto.negocio.modelo.DetalleCotizacion;
 public interface RepositorioDetalleCotizacion extends CrudRepository <DetalleCotizacion, Long>{
     
     // Métodos para el repositorio de DetalleCotizacion
-
+    // ...
 }
