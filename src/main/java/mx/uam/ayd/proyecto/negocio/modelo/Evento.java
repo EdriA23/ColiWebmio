@@ -7,6 +7,7 @@ import java.util.List;
 import javax.naming.directory.InvalidAttributeIdentifierException;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -31,13 +32,13 @@ public class Evento {
 
     // Se hacen los enum necesarios
     public enum TipoEvento {
-        BODA, ESCOLAR, CUMPLEAÑOS
+        BODA, ESCOLAR, CUMPLEANOS
     }
     public enum EstadoEvento {
         BORRADOR, CONFIRMADO, FINALIZADO
     }
     public enum EstadoPago {
-        // ...
+        PENDIENTE, LIQUIDADO
     }
 
     // Atributos de la entidad
@@ -45,16 +46,21 @@ public class Evento {
     private TipoEvento tipoEvento;
     private LocalDate fecha;
     private LocalTime hora;
+    @Column(nullable = true)
     private String lugar;
+    @Column(nullable = true)
     private String referencias;
     private String direccion;
     private float totalPagado;
     @Enumerated(EnumType.STRING)
     private EstadoEvento estadoEvento;
+    @Column(nullable = true)
     private String detalles;
+    @Column(nullable = true)
     private String visualRecinto;
     @Enumerated(EnumType.STRING)
-    private EstadoPago estadoPago;   
+    private EstadoPago estadoPago;
+    @Column(nullable = true)
     private String clausulasExtras;
     private boolean contratoFirmado;
     
@@ -124,6 +130,8 @@ public class Evento {
         return clausulasExtras;
     }public boolean getContratoFirmado(){
         return contratoFirmado;
+    }public Cliente getCliente(){
+        return cliente; 
     }
 
     // setters
@@ -156,5 +164,12 @@ public class Evento {
         this.clausulasExtras = clausulas;
     }public void setContratoFirmado(boolean firma){
         this.contratoFirmado = firma;
+    }public void setCliente(Cliente cliente){
+        this.cliente = cliente;
+    }
+
+    @Override
+    public String toString(){
+        return fecha+" "+tipoEvento;
     }
 }

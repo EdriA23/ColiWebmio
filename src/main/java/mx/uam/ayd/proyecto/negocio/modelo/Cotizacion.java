@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -25,15 +26,25 @@ public class Cotizacion {
     private Long idCotizacion;
 
     // Atributos de la entidad
+    @Column(nullable = true)
     private float anticipo;
+    @Column(nullable = true)
     private float total;
+    @Column(nullable = true)
     private float totalMaterial;
+    @Column(nullable = true)
     private float transporte;
+    @Column(nullable = true)
     private float extra;
+    @Column(nullable = true)
     private float materialPersonalizado;
+    @Column(nullable = true)
     private float manoDeObra;
+    @Column(nullable = true)
     private float ganancia;
+    @Column(nullable = true)
     private float consumibles;
+    @Column(nullable = true)
     private boolean aprobada;
 
     /**
@@ -62,6 +73,9 @@ public class Cotizacion {
         return detalles;
     }public Long getId(){
         return idCotizacion;
+    }
+    public float getTotal(){
+        return total;
     }
 
     // setters

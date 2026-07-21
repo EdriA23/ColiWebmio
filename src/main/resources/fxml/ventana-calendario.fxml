@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <children>
+                  <VBox maxHeight="650.0" minHeight="650.0" prefHeight="650.0" style="-fx-background-color: #fcf6fc; -fx-background-radius: 25px; -fx-padding: 20px;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" VBox.vgrow="NEVER">
+                           <children>
+                              <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../img/calendar_month_24dp_9D31E0_FILL0_wght400_GRAD0_opsz24.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="mesAnio" text="Mes Año" textFill="#9d31e0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Region maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="antMes" mnemonicParsing="false" onAction="#botonAntMes" style="-fx-background-color: #f3ebf3; -fx-background-radius: 50px; -fx-text-fill: black;" text="&lt;">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
+                                    <Button fx:id="sigMes" mnemonicParsing="false" onAction="#botonSigMes" style="-fx-background-color: #f3ebf3; -fx-background-radius: 50px; -fx-text-fill: black;" text="&gt;">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="20.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Lunes" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Martes" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Miércoles" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Jueves" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Viernes" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="109.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Sábado" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="142.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Domingo" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <GridPane fx:id="contenedorDias" alignment="CENTER" VBox.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="14.28" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" percentHeight="16.66" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ToggleButton fx:id="lunes1" contentDisplay="CENTER" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="opcionesDia" />
+                                 </toggleGroup>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo1" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="lunes2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo2" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="lunes3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles3" contentDisplay="CENTER" layoutX="78.0" layoutY="142.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo3" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="lunes4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes4" contentDisplay="CENTER" layoutX="214.0" layoutY="208.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo4" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="lunes5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes5" contentDisplay="CENTER" layoutX="214.0" layoutY="273.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo5" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </ToggleButton>
+                              <ToggleButton fx:id="lunes6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="martes6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="miercoles6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="jueves6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="viernes6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sabado6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                              <ToggleButton fx:id="domingo6" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#botonDia" prefHeight="80.0" prefWidth="80.0" styleClass="dia-base" stylesheets="@../css/estilos.css" text="día" textAlignment="CENTER" toggleGroup="$opcionesDia" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ToggleButton>
+                           </children>
+                        </GridPane>
+                     </children>
+                     <styleClass>
+                        <String fx:value="-fx-background-color: #fcf6fc;" />
+                        <String fx:value="-fx-background-radius: 25px;" />
+                        <String fx:value="-fx-padding: 20px;" />
+                     </styleClass>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" maxHeight="650.0" minHeight="650.0" prefHeight="650.0" prefWidth="280.0" spacing="15.0" HBox.hgrow="NEVER">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="7.0" style="-fx-background-color: #F2EBF2; -fx-background-radius: 15px; -fx-padding: 15px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4);">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="detallesEvento" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false" StackPane.alignment="TOP_LEFT">
+                                       <children>
+                                          <Label alignment="CENTER" text="DETALLES DEL EVENTO" textFill="#5e5e5e">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <VBox maxHeight="1.7976931348623157E308" spacing="5.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4);">
+                                                   <children>
+                                                      <Rectangle fx:id="rectanguloSeleccionado" arcHeight="5.0" arcWidth="5.0" height="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Rectangle>
+                                                      <VBox prefHeight="24.0" prefWidth="206.0">
+                                                         <children>
+                                                            <Label fx:id="eventoSeleccionado" prefHeight="17.0" prefWidth="219.0" text="Evento Seleccionado" textFill="#252525">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="estadoSeleccionado" prefHeight="17.0" prefWidth="209.0" text="ESTADO">
+                                                               <font>
+                                                                  <Font name="System Bold" size="13.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="pagoSeleccionado" layoutX="10.0" layoutY="32.0" prefHeight="17.0" prefWidth="209.0" text="Estado Pago">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="5.0" top="10.0" />
+                                                   </padding>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/alarm_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="horaSeleccionado" text="XX:XX - XX:XX">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="105.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/distance_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="ubicacionSeleccionado" text="Ubicación">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="127.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/person_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="clienteSeleccionado" text="Cliente">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="149.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="montoSeleccionado" text="\$ Dinero">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Button fx:id="botonCotizacion" contentDisplay="CENTER" layoutX="10.0" layoutY="193.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #F2EBF2; -fx-background-radius: 30px; -fx-text-fill: #d81b60; -fx-font-weight: bold; -fx-cursor: hand; -fx-border-color: #d81b60; -fx-border-width: 2px; -fx-border-radius: 30px;" text="Ver Cotización" textAlignment="CENTER" wrapText="true">
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="10.0" />
+                                                   </padding>
+                                                </Button>
+                                                <Button fx:id="botonGestion" contentDisplay="CENTER" layoutX="10.0" layoutY="236.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d81b60; -fx-background-radius: 30px; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Gestionar Evento" textAlignment="CENTER">
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="10.0" />
+                                                   </padding>
+                                                </Button>
+                                                <Button fx:id="botonPagos" contentDisplay="CENTER" layoutX="10.0" layoutY="236.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #9d31e0; -fx-background-radius: 30px; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Gestionar Pagos" textAlignment="CENTER">
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="10.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="proximosEventos" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" StackPane.alignment="TOP_LEFT">
+                                       <children>
+                                          <Label alignment="CENTER" text="PRÓXIMOS EVENTOS" textFill="#5e5e5e">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <VBox prefHeight="2.0" prefWidth="211.0" spacing="5.0">
+                                             <children>
+                                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4); -fx-border-color: 20px; -fx-background-color: white; -fx-background-radius: 50;">
+                                                   <children>
+                                                      <Rectangle fx:id="proxEstado1" arcHeight="5.0" arcWidth="5.0" height="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Rectangle>
+                                                      <VBox prefHeight="24.0" prefWidth="206.0">
+                                                         <children>
+                                                            <Label fx:id="proxFecha1" prefHeight="17.0" prefWidth="219.0" text="Fecha1" textFill="#7b6886">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="proxNombre1" prefHeight="17.0" prefWidth="209.0" text="Evento1">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="5.0" top="10.0" />
+                                                   </padding>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4); -fx-border-color: 20px; -fx-background-color: white; -fx-background-radius: 50;">
+                                                   <children>
+                                                      <Rectangle fx:id="proxEstado2" arcHeight="5.0" arcWidth="5.0" height="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Rectangle>
+                                                      <VBox prefHeight="24.0" prefWidth="206.0">
+                                                         <children>
+                                                            <Label fx:id="proxFecha2" prefHeight="17.0" prefWidth="219.0" text="Fecha2" textFill="#7b6886">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="proxNombre2" prefHeight="17.0" prefWidth="209.0" text="Evento2">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="5.0" top="10.0" />
+                                                   </padding>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="87.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4); -fx-border-color: 20px; -fx-background-color: white; -fx-background-radius: 50;">
+                                                   <children>
+                                                      <Rectangle fx:id="proxEstado3" arcHeight="5.0" arcWidth="5.0" height="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Rectangle>
+                                                      <VBox prefHeight="24.0" prefWidth="206.0">
+                                                         <children>
+                                                            <Label fx:id="proxFecha3" prefHeight="17.0" prefWidth="219.0" text="Fecha3" textFill="#7b6886">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="proxNombre3" prefHeight="17.0" prefWidth="209.0" text="Evento3">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="5.0" top="10.0" />
+                                                   </padding>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="detallesFinalizado" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false" StackPane.alignment="TOP_LEFT">
+                                       <children>
+                                          <Label alignment="CENTER" text="DETALLES DEL EVENTO" textFill="#5e5e5e">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <VBox maxHeight="1.7976931348623157E308" spacing="5.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="eventoFinalizado" prefHeight="17.0" prefWidth="219.0" text="Evento Seleccionado" textFill="#252525">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="pagoFinalizado" prefHeight="17.0" style="-fx-background-color: #a3f2a6; -fx-background-radius: 30px;" text="FINALIZADO" textFill="#19801c">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </padding>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/alarm_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="horaFinalizado" text="XX:XX - XX:XX">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="105.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/distance_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="ubicacionFinalizado" text="Ubicación">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="127.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/person_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="clienteFinalizado" text="Cliente">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="149.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="montoFinalizado" text="\$ Dinero">
+                                                         <font>
+                                                            <Font size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Button fx:id="botonCompartir" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #F2EBF2; -fx-background-radius: 30px; -fx-text-fill: #d81b60; -fx-font-weight: bold; -fx-cursor: hand; -fx-border-color: #d81b60; -fx-border-width: 2px; -fx-border-radius: 30px;" text="Compartir Decoración" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                         <padding>
+                                                            <Insets bottom="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Button>
+                                                      <Button fx:id="botonLiquidacion" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d81b60; -fx-background-radius: 30px; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Ver Liquidación" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                         <padding>
+                                                            <Insets bottom="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <Button fx:id="botonMobiliario" contentDisplay="CENTER" layoutX="10.0" layoutY="236.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #9d31e0; -fx-background-radius: 30px; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Administrar Mobiliario" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="10.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <Separator prefWidth="200.0" />
+                              <Label style="-fx-font-weight: bold;" text="Detalles de la fecha" textFill="#5e5e5e">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="TOP_CENTER" spacing="7.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#d81b60" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Seleccionada: Fecha del evento">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#67ebf5" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Borrador: Pendientes de confirmación">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="35.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#1a9cd4" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Confirmados: Actividad reservada">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#e0e0e0" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Bloqueadas: No disponibles">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="85.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#2eff38" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Finalizados: Eventos concluidos">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Circle fill="#f3ebf3" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Label text="Disponibles: Fechas disponibles">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                        <Button fx:id="continuar" contentDisplay="CENTER" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #d81b60; -fx-background-radius: 30px; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Continuar →" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

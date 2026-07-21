@@ -46,4 +46,9 @@ public class Cliente {
     }public String getNumTelefono(){
         return numTelefono;
     }
+
+    public String toString(){
+        String cadena = nombre+" "+numTelefono;
+        return cadena;
+    }
 }

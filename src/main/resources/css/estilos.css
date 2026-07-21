@@ -1,0 +1,142 @@
+.dia-base {
+    -fx-background-radius: 50%;
+    -fx-background-color: #f3ebf3;
+    background-color: #f3ebf3;
+    -fx-text-fill: #5a4b5a;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-width: 70px;
+    -fx-height: 70px;
+    width: 70px;
+    height: 70px;
+}
+.dia-base:hover {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+.dia-base:selected{
+    -fx-background-color: #d81b60;
+    -fx-text-fill: white !important;
+    background-color: #d81b60;
+}
+
+.dia-calendario-confirmado{
+    background-color: #1a9cd4;
+    -fx-background-color: #1a9cd4;
+	-fx-text-fill: white !important;
+	-fx-font-weight: bold;
+    font-weight: bold;
+	-fx-background-radius: 50%;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-width: 70px;
+    -fx-height: 70px;
+    width: 70px;
+    height: 70px;
+}
+.dia-calendario-confirmado:selected {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+}
+.dia-calendario-confirmado:hover {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.dia-calendario-finalizado{
+    background-color: #2eff38;
+    -fx-background-color: #2eff38; 
+	-fx-text-fill: white !important; 
+	-fx-font-weight: bold;
+    font-weight: bold;
+	-fx-background-radius: 50%;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-width: 70px;
+    -fx-height: 70px;
+    width: 70px;
+    height: 70px;
+}
+.dia-calendario-finalizado:selected {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+}
+.dia-calendario-finalizado:hover {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.dia-calendario-borrador{
+    background-color: #67ebf5;
+    -fx-background-color: #67ebf5;
+	-fx-text-fill: #2d4272 !important;
+	-fx-font-weight: bold;
+    font-weight: bold;
+	-fx-background-radius: 50%;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-width: 70px;
+    -fx-height: 70px;
+    width: 70px;
+    height: 70px;
+}
+.dia-calendario-borrador:selected {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+}
+.dia-calendario-borrador:hover {
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.botonCotizacion{
+    -fx-border-color: #d81b60;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50%;
+    -fx-text-fill: #d81b60;
+    -fx-background-color: white;
+    border-color: #d81b60;
+    border-width: 5px;
+    border-radius: 50%;
+    background-color: white;
+}

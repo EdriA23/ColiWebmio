@@ -17,8 +17,10 @@ public interface RepositorioEvento extends CrudRepository <Evento, Long> {
     
     // Métodos necesarios para el repositorio
     //Find by Mes
-    @Query("SELECT e FROM Evento e WHERE MONTH(e.fecha) = :#{#mes.value}")
-    List<Evento> findByMes(@Param("mes") Month mes);
+    @Query("SELECT e FROM Evento e WHERE MONTH(e.fecha) = :#{#mes.value} ORDER BY fecha ASC")
+    List<Evento> findByMesOrderByFecha(@Param("mes") Month mes);
 
     Evento findByFecha(LocalDate fecha);
+
+    List<Evento> findByOrderByFechaAsc();
 }

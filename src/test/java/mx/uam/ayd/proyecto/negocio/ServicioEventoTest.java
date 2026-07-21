@@ -26,13 +26,14 @@ import mx.uam.ayd.proyecto.negocio.modelo.Evento;
 @ExtendWith(MockitoExtension.class)
 class ServicioEventoTest {
 
+    // Es un sustituto de lo que realmente es el repositorio
     @Mock
     private RepositorioEvento repositorioEvento;
 
     @InjectMocks
     private ServicioEvento servicioEvento;
     
-    // recuperaEventosTest
+    // ---------- recuperaEventosTest ----------
     @Test
     void recuperaEventosConListaConMesIgual() {
         // Given
@@ -43,10 +44,10 @@ class ServicioEventoTest {
         LocalDate fecha = LocalDate.of(2026,01,24);
         Month mes = fecha.getMonth();
 
-        when(repositorioEvento.findByMes(mes)).thenReturn(lista);
+        when(repositorioEvento.findByMesOrderByFecha(mes)).thenReturn(lista);
 
         // When
-        List<Evento> eventos = servicioEvento.recuperaEventos(fecha);
+        List<Evento> eventos = servicioEvento.recuperaEventosPorMes(fecha);
 
         // Then
         assertNotEquals(0, eventos.size());
@@ -57,9 +58,9 @@ class ServicioEventoTest {
         ArrayList<Evento> lista = new ArrayList<>();
         LocalDate fecha = LocalDate.of(2026,03,24);
         Month mes = fecha.getMonth();
-        when(repositorioEvento.findByMes(mes)).thenReturn(lista);
+        when(repositorioEvento.findByMesOrderByFecha(mes)).thenReturn(lista);
         // When
-        List<Evento> eventos = servicioEvento.recuperaEventos(fecha);
+        List<Evento> eventos = servicioEvento.recuperaEventosPorMes(fecha);
         // Then
         assertEquals(0, eventos.size());
     }
@@ -70,7 +71,7 @@ class ServicioEventoTest {
 
         // When, Then
         assertThrowsExactly(IllegalArgumentException.class, () -> {
-            servicioEvento.recuperaEventos(fecha);
+            servicioEvento.recuperaEventosPorMes(fecha);
         });
     }
 
@@ -78,7 +79,7 @@ class ServicioEventoTest {
     @Test
     void fechasBloqueadasTest() {
         // When
-        LocalDate resultado = servicioEvento.fechasBloqueadas();
+        LocalDate resultado = servicioEvento.obtenerDiaActual();
         // Then
         LocalDate fechaDespues = LocalDate.now().plusDays(16);
         assertEquals(fechaDespues, resultado);

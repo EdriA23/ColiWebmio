@@ -3,6 +3,8 @@ package mx.uam.ayd.proyecto.negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +48,15 @@ public class ServicioEvento {
      * @return Lista con los eventos que coinciden en el mes
      * @throws IllegalArgumentException
      */
-    public List<Evento> recuperaEventos(LocalDate fecha) throws IllegalArgumentException{
+    public List<Evento> recuperaEventosPorMes(LocalDate fecha) throws IllegalArgumentException{
         if(fecha==null) throw new IllegalArgumentException("La fecha no es válida.");
 
         Month mes = fecha.getMonth();
-        return repositorioEvento.findByMes(mes);
+        return repositorioEvento.findByMesOrderByFecha(mes);
+    }
+
+    public List<Evento> recupera(){
+        return repositorioEvento.findByOrderByFechaAsc();
     }
     
     /**
@@ -59,9 +65,8 @@ public class ServicioEvento {
      * @author JLCB
      * @return día a partir del cual se pueden reservar fechas
      */
-    public LocalDate fechasBloqueadas(){
+    public LocalDate obtenerDiaLimite(){
         LocalDate hoy = LocalDate.now();
-        
         return hoy.plusDays(16);
     }
 
@@ -201,6 +206,29 @@ public class ServicioEvento {
         return true;
     }
 
+    public Cliente obtenerCliente(Evento evento){
+        return repositorioCliente.findByEventosContains(evento);
+    }
+
+    public List<Object> diaPresionado(Object dato){
+        List<Object> datos = new ArrayList<>();
+        if(dato instanceof Evento evento){
+            String estadoEvento = evento.getEstadoEvento().toString();
+			datos.add(estadoEvento.toString());
+            datos.add(evento.toString());
+            datos.add(evento.getHora().format(DateTimeFormatter.ofPattern("HH:mm")));   
+            if(evento.getLugar() != null) datos.add(evento.getLugar());
+            else datos.add(evento.getDireccion());
+            datos.add(evento.getCliente().toString());
+            datos.add(evento.getTotalPagado());
+			
+			if(!estadoEvento.equals("FINALIZADO"))
+                datos.add(evento.getEstadoPago().toString());
+
+		}
+        return datos;
+    }
+
     /**
      * Dada una fecha, revisa si en esa fecha existe algún evento o si es una fecha pasada
      * @param fecha Es la fecha que se da a evaluar
@@ -211,8 +239,27 @@ public class ServicioEvento {
             System.err.println("La fecha no existe");
             return false;
         }
-        LocalDate fechaLimite = fechasBloqueadas();
+        LocalDate fechaLimite = obtenerDiaLimite();
         if(repositorioEvento.findByFecha(fecha) != null && fecha.isBefore(fechaLimite)) return false;
         return true;
+    }
+
+    /**
+     * Busca en LocalDate cuál es el valor del día actual
+     * @return Regresa el día actual en un LocalDate
+     */
+    public LocalDate obtenerDiaActual(){
+        return LocalDate.now();
+    }
+    
+    public LocalDate aumentarMes(LocalDate fecha){
+        fecha = fecha.withDayOfMonth(1);
+        fecha = fecha.plusMonths(1);
+        return fecha;
+    }
+    public LocalDate disminuirMes(LocalDate fecha){
+        fecha = fecha.withDayOfMonth(1);
+        fecha = fecha.plusMonths(-1);
+        return fecha;
     }
 }
